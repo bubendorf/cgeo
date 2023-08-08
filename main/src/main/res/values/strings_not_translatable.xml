@@ -45,6 +45,9 @@
     <string translatable="false" name="map_source_osm_cyclosm">CyclOSM</string>
     <string translatable="false" name="map_source_osm_opentopomap">OpenTopoMap</string>
 
+    <string translatable="false" name="map_source_swiss_topo">Swiss Topo</string>
+    <string translatable="false" name="map_source_swiss_image">Swiss Image</string>
+	
     <!-- edit waypoint -->
     <string translatable="false" name="waypoint_latitude_null">N/S --° --.---</string>
     <string translatable="false" name="waypoint_longitude_null">E/W --° --.---</string>

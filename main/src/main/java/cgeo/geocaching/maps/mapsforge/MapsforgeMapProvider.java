@@ -58,6 +58,8 @@ public final class MapsforgeMapProvider extends AbstractMapProvider {
         final Resources resources = CgeoApplication.getInstance().getResources();
 
         //register fixed maps
+		registerMapSource(new SwissTopoMapSource(this, resources.getString(R.string.map_source_swiss_topo)));
+        registerMapSource(new SwissImageMapSource(this, resources.getString(R.string.map_source_swiss_image)));
         registerMapSource(new OsmMapSource(this, resources.getString(R.string.map_source_osm_mapnik)));
         registerMapSource(new OsmdeMapSource(this, resources.getString(R.string.map_source_osm_osmde)));
         registerMapSource(new CyclosmMapSource(this, resources.getString(R.string.map_source_osm_cyclosm)));
@@ -216,6 +218,32 @@ public final class MapsforgeMapProvider extends AbstractMapProvider {
 
     }
 
+    public static final class SwissTopoMapSource extends AbstractMapsforgeMapSource {
+
+        public SwissTopoMapSource(final MapProvider mapProvider, final String name) {
+            super(mapProvider, name, TileSourceSwissTopo.INSTANCE);
+        }
+
+        @Override
+        public ImmutablePair<String, Boolean> calculateMapAttribution(final Context ctx) {
+            return new ImmutablePair<>("", false);
+        }
+
+    }
+
+   public static final class SwissImageMapSource extends AbstractMapsforgeMapSource {
+
+        public SwissImageMapSource(final MapProvider mapProvider, final String name) {
+            super(mapProvider, name, TileSourceSwissImage.INSTANCE);
+        }
+
+        @Override
+        public ImmutablePair<String, Boolean> calculateMapAttribution(final Context ctx) {
+            return new ImmutablePair<>("", false);
+        }
+
+    }
+	
     public static final class OfflineMultiMapSource extends AbstractMapsforgeMapSource {
         private final List<ImmutablePair<String, Uri>> mapUris;
 
