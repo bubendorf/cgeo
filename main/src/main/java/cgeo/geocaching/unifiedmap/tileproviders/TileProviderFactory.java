@@ -94,6 +94,10 @@ public class TileProviderFactory {
             registerTileProvider(new GoogleTerrainSource());
         }
 
+        registerTileProvider(new SwissTopoSource());
+        registerTileProvider(new SwissImageSource());
+
+
         // OSM online tile providers (Mapsforge)
         if (Settings.showMapsforgeInUnifiedMap()) {
             registerTileProvider(new OsmOrgSource());
